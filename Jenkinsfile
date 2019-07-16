@@ -3,8 +3,8 @@ pipeline{
         stages{
 		stage('---clean---'){
                         steps{
-                               sh "kubectl delete ./nginx/config-map.yaml"
-                               sh "kubectl delete ./nginx/deployment.yaml"
+                               sh "kubectl delete -f ./nginx/config-map.yaml"
+                               sh "kubectl delete -f ./nginx/deployment.yaml"
                         }
                 }
 		stage('---get pods---'){
