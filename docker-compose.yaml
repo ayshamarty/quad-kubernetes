@@ -15,14 +15,14 @@ services:
         - client
         - server
     server:
-      image: 127.0.0.1:5000/server
+      image: ayshamarty/server
       build:
         context: ./server
         dockerfile: Dockerfile
       ports:
       - "8081:8080"
     client:
-      image: 127.0.0.1:5000/client
+      image: ayshamarty/client
       build:
         context: ./client
         dockerfile: Dockerfile
