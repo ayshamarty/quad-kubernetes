@@ -1,6 +1,16 @@
 pipeline{
 	agent any
         stages{
+                stage('---get containers---')
+                        steps{
+                               sh "docker ps"
+                        }
+                }
+                stage('---get pods---')
+                        steps{
+                               sh "kubectl get pods"
+                        }
+                }
 		stage('---clean---'){
                         steps{
                                sh "kubectl delete -f ./nginx"
