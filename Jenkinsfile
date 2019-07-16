@@ -13,7 +13,8 @@ pipeline{
                 }
 		stage('---client---'){
 			steps{
-				sh "kubectl apply -f ./client"
+				sh "kubectl apply -f ./client/deployment.yaml"
+				sh "kubectl apply -f ./client/service.yaml"
 			}
 		}
 		stage('---server---'){
