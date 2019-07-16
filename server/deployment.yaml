@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: server
-        image: ayshamarty/server:v1
+        image: ayshamarty/server:{{TAG}}
         ports:
         - containerPort: 8080
         env: 
