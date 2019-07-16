@@ -11,18 +11,27 @@ pipeline{
                                sh "kubectl get pods"
                         }
                 }
-		stage('---clean---'){
+		stage('---mongo---'){
                         steps{
-                               sh "kubectl delete -f ./nginx"
+                               sh "kubectl apply -f ./mongo/data"
                         }
                 }
-		stage('---apply---'){
+		stage('---client---'){
 			steps{
-				sh "kubectl apply -f ./mongo/data"
 				sh "kubectl apply -f ./client"
-				sh "kubectl apply -f ./server"
-				sh "kubectl apply -f ./nginx"
 			}
 		}
+		stage('---server---'){
+			steps{
+				sh "kubectl apply -f ./server"
+			}
+		}
+		stage('---nginx---'){
+			steps{
+				sh "kubectl apply -f ./nginx"
+			}
+		}		
 	}
 }
+
+
