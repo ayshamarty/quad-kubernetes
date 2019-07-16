@@ -1,6 +1,12 @@
 pipeline{
 	agent any
         stages{
+		stage('---clean---'){
+                        steps{
+                               sh "kubectl delete ./nginx/config-map.yaml"
+                               sh "kubectl delete ./nginx/deployment.yaml"
+                        }
+                }
 		stage('---get pods---'){
                         steps{
                                sh "kubectl get pods"
