@@ -35,9 +35,20 @@ pipeline{
 		}	
 		stage('---check containers---'){
                         steps{
-                               sh "docker ps"
+                               sh "sudo docker ps"
                         }
                 }
+				stage('---build---'){
+                        steps{
+                               sh "sudo docker-compose up --build -d"
+                               sh "sudo docker stack deploy --compose-file docker-compose.yaml stackdemo"
+                        }
+                }
+		stage('---push---'){
+			steps{
+				sh "sudo docker-compose push"
+			}
+		}
 	}
 }
 
