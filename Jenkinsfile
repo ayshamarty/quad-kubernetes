@@ -1,12 +1,12 @@
 pipeline{
 	agent any
         stages{
-                stage('---get containers---')
+		stage('---get containers---'){
                         steps{
                                sh "docker ps"
                         }
                 }
-                stage('---get pods---')
+		stage('---get pods---'){
                         steps{
                                sh "kubectl get pods"
                         }
