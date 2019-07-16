@@ -28,6 +28,7 @@ class Unit extends Component {
       return (
         <div>
             <button onClick={this.makeRequest} >Click me</button>
+	      <p> eughueuguh</p>
           <h2>{this.state.data}</h2>
         </div>
       );
